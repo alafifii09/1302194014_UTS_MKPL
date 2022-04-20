@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Date;
 
 public class Employee {
 
@@ -18,10 +19,8 @@ public class Employee {
 
 	private String idNumber;
 	private String address;
-	
-	private int yearJoined;
-	private int monthJoined;
-	private int dayJoined;
+	// penyederhanaan waktu masuk
+	private Date tanggalMasuk;
 
 	private int monthWorkingInYear;
 	
@@ -39,22 +38,26 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
+	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date tanggalMasuk, boolean isForeigner, boolean gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.idNumber = idNumber;
 		this.address = address;
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
 		this.isForeigner = isForeigner;
 		this.Jenisgender = gender;
 		
 		childNames = new LinkedList<String>();
 		childIdNumbers = new LinkedList<String>();
 	}
+	public Date gettanggalMasuk(){
+		return tanggalMasuk;
+	}
+	public void settanggalMasuk(Date tanggalMasuk){
+		this.tanggalMasuk = tanggalMasuk;
+	}
 	
+
 	/**
 	 * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
